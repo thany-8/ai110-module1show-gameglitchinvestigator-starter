@@ -95,8 +95,11 @@ I played the game several times and came to the conclusion that the issue had be
 
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
-  when I was testing the game manually a realized the code for returning a wrong message and it did not have a limit on the range, it was going out of 1 or up of 100. with the AI
+  While testing the game manually, I discovered that the code responsible for displaying the hint messages did not enforce the valid range of 1 to 100. As a result, the game continued to suggest guesses below 1 and above 100. After reviewing the code with the AI assistant, I identified the missing range validation and corrected the issue. I then tested the game again and confirmed that the bug had been resolved.
+
 - Did AI help you design or understand any tests? How?
+
+ Yes, AI helped me design and understand the tests. It explained the purpose of testing more clearly and helped me think about different scenarios that should be tested, including edge cases and invalid inputs. I also learned several testing and debugging commands that I had not used before. 
 
 ---
 
@@ -104,11 +107,23 @@ I played the game several times and came to the conclusion that the issue had be
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 
+A good example is to imagine you have a notebook, and every time you write something, someone erases the entire page and makes you start over. This is similar to how Streamlit reruns work every time a user clicks a button.
+
+Session state is the memory that allows the app to remember information. Even if someone erases your work, session state helps the app remember what was there before.
+
+
+
+
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
+This project helped me become more familiar with VS Code and Git. One thing I want to reuse in future projects is learning how to take advantage of AI assistants without overusing them.
+
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+  AI helped me understand how to create efficient tests that cover possible edge cases that may occur in a program. I also enjoyed becoming more familiar with Git and learning that it is not as complicated as it initially seemed.
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+I would rely less on the AI assistant at the beginning and spend more time developing my own ideas and understanding of the problem first. Then, I would use AI to verify my reasoning, identify any misunderstandings, or fill in gaps in my knowledge.
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
