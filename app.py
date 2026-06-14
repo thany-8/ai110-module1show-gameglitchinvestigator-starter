@@ -30,26 +30,20 @@ def parse_guess(raw: str):
     return True, value, None
 
 
-'''
-    if guess == secret:
-        return "Win", "🎉 Correct!"
-    if guess > secret:
-        return "Too High", "📉 Go LOWER!"
-    return "Too Low", "📈 Go HIGHER!"
-'''
+
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
     if outcome == "Win":
-        points = 100 - 10 * attempt_number
+        points = 100 - 10 * attempt_number # Fix: Calculate points based on attempt number
         if points < 10:
             points = 10
         return current_score + points
 
-    if outcome == "Too High":
-        return current_score - 5
+    if outcome == "Too High": 
+        return current_score - 5 # Fix: Subtract points for incorrect guesses
 
     if outcome == "Too Low":
-        return current_score - 5
+        return current_score - 5 # Fix: Subtract points for incorrect guesses
 
     return current_score
 
@@ -78,8 +72,16 @@ low, high = get_range_for_difficulty(difficulty)
 st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 
-if "secret" not in st.session_state:
+if "difficulty" not in st.session_state:
+    st.session_state.difficulty = difficulty
+
+if "secret" not in st.session_state or st.session_state.difficulty != difficulty: #Fix : Reset the game range in the announce when the difficulty changes.
+    st.session_state.difficulty = difficulty
     st.session_state.secret = random.randint(low, high)
+    st.session_state.attempts = 1
+    st.session_state.score = 0
+    st.session_state.status = "playing"
+    st.session_state.history = []
 
 if "attempts" not in st.session_state:
     st.session_state.attempts = 1
@@ -96,7 +98,7 @@ if "history" not in st.session_state:
 st.subheader("Make a guess")
 
 st.info(
-    f"Guess a number between 1 and 100. "
+    f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
 
