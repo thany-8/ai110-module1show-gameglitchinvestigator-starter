@@ -33,11 +33,13 @@ It wrote the code, ran away, and now the game is unplayable.
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Launch the app — Run python -m streamlit run app.py in your terminal. The game opens in the browser with the title "Game Glitch Investigator".
+2. hoose a difficulty — In the left sidebar, select a difficulty level. For this walkthrough, choose Normal (range 1–100, 8 attempts allowed).
+3. First guess: 50 — Type 50 and click Submit Guess. The hint reads "📉 Go LOWER!" and your score drops to -5. Attempts left: 7.
+4. Second guess: 25 — Type 25 and click Submit Guess. The hint reads "📈 Go HIGHER!" and score drops to -10. Attempts left: 6.
+5. Third guess: 37 — Type 37 and click Submit Guess. The hint reads "🎉 Correct!" — balloons animate on screen. Points awarded: 100 - 10 * 3 = 70. Final score: 60.
+6. Game over — won — A success banner displays: "You won! The secret was 37. Final score: 60."
+7. Start a new game — Click New Game 🔁. The secret resets to a new random number, score resets to 0, and attempt counter resets — ready to play again.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
