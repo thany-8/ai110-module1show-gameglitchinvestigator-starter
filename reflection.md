@@ -5,8 +5,13 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+When I first ran the game, the basic interface loaded, but several features were not working correctly. I tested the main gameplay functions by interacting with the controls and observing the game's behavior. During my initial testing, I noticed multiple bugs that affected gameplay and user experience.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
+
+ * Bug #1: The score calculation logic in the update_score function was incorrect. The game was calculating the winning score incorrectly because of an off-by-one error. In addition, wrong guesses were not penalized consistently, causing some incorrect guesses to receive points instead of losing points.
+ * Bug #2: The game allowed guesses outside the valid range of 1 to 100. It continued to provide "higher" and "lower" hints even when the player entered values below 1 or above 100, resulting in confusing gameplay.
+ * Bug #3: When I tried to start a new game, the game did not reset as expected. Instead, I had to manually refresh the browser page to begin another round, the reset functionality was not working correctly.
 
 **Bug Reproduction Log**
 
@@ -14,62 +19,12 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
-Answer:
-What did the game look like the first time you ran it?
-When I first ran the game, the basic interface loaded, but several features were not working correctly. I tested the main gameplay functions by interacting with the controls and observing the game's behavior. During my initial testing, I noticed multiple bugs that affected gameplay and user experience.
-
-List at least two concrete bugs you noticed at the start 
-
-Some of the first issues I observed were:
-
-Bug #1: The game told me to keep guessing lower even after I reached 1. Since the valid range is only from 1 to 100, the game should never guide the player toward negative numbers.
-Bug #2: The upper bound of the game. The game suggested guessing higher than 100 even though the stated range was 1–100. It also gave inconsistent hints after out-of-range guesses, which made it difficult to determine the correct answer.
-Bug #3: When I tried to start a new game, the game did not reset as expected. Instead, I had to manually refresh the browser page to begin another round, the reset functionality was not working correctly.
-
-Bug Reproduction Log
-
-#Bug1 #1: 
-Input / Action:
-I entered 23, then kept guessing lower numbers until I entered 1.
-
-Expected Behavior:
-The game should not suggest going lower than 1. it should show a invalid message or guess is correct.
-
-Actual Behavior:
-The game kept saying "go lower" even when I guessed 1, which let me try -1 and -20.
-
-Console Output / Error:
-The game logic was incorrect.
-
-#Bug1 #2: 
-Input / Action:
-I guessed 100. The game told me to go higher, so I entered 200. Then 90 and then the game told me to go higher again. 
-
-Expected Behavior:
-Since the valid range is 1 to 100, the game should not suggest guessing higher than 100. The game should remain consistent and guide the player.
-
-Actual Behavior:
-The game allowed the player to guess greater than 100 and gave confusing hints. it was unclear to the know where the correct number was.
-
-Console Output / Error:
-The game logic was incorrect.
+|I tested the score after making guesses during the game, including correct and incorrect guesses. |The score should be calculated correctly. A correct guess should receive the proper win score, and incorrect guesses such as "Too High" or "Too Low" should be penalized consistently. |The update_score function calculated the score incorrectly. The win score was 10 points lower than expected because of an extra +1 in the formula. Also, some wrong guesses were rewarded points instead of being penalized.
+ |No console error was displayed, but the score logic was incorrect. |
+|I entered guesses outside the valid range, including values below 1 and above 10 | The game should only accept guesses between 1 and 100. If the player enters a value outside this range, the game should display an error message and request a valid input. |The game allowed guesses outside the valid range of 1 to 100. It continued to provide "higher" and "lower" hints even when I entered values below 1 or above 100, resulting in confusing gameplay. |No console error was displayed, but the game logic did not properly validate user input.|
+|The New Game command does not work |the game should reset and start a new round with a new secret number |Nothing happen when I selected New Game. I have to refresh the browser to start a new game | No console error  |
 
 
-#Bug1 #3: 
-Input / Action:
-The New Game command does not work
-
-Expected Behavior:
-the game should reset and start a new round with a new secret number.
-
-Actual Behavior:
-Nothing happen when I selected New Game. I have to refresh the browser to start a new game.
-
-Console Output / Error:
-No console error 
 
 ---
 
