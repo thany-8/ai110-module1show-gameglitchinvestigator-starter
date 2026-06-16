@@ -86,4 +86,5 @@ Document at least 3 bugs you found. Add rows as needed.
   
   I would rely less on the AI assistant at the beginning and spend more time developing my own ideas and understanding of the problem       first. Then, I would use AI to verify my reasoning, identify any misunderstandings, or fill in gaps in my knowledge.
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+  
   This project taught me that AI-generated code is most effective as an initial draft rather than a finished product, I realized that while AI speed up development, strict human oversight is always necessary to catch logical bugs and maintain system integrity.
