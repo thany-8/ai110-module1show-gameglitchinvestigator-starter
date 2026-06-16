@@ -5,12 +5,16 @@
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+  
   When I first ran the game, the basic interface loaded, but several features were not working correctly. I tested the main gameplay        functions by interacting with the controls and observing the game's behavior. During my initial testing, I noticed multiple bugs that     affected gameplay and user experience.
+  
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
  * Bug #1: The score calculation logic in the update_score function was incorrect. The game was calculating the winning score incorrectly    because of an off-by-one error. In addition, wrong guesses were not penalized consistently, causing some incorrect guesses to receive     points instead of losing points.
+   
  * Bug #2: The game allowed guesses outside the valid range of 1 to 100. It continued to provide "higher" and "lower" hints even when the    player entered values below 1 or above 100, resulting in confusing gameplay.
+   
  * Bug #3: When I tried to start a new game, the game did not reset as expected. Instead, I had to manually refresh the browser page to      begin another round, the reset functionality was not working correctly.
 
 **Bug Reproduction Log**
@@ -45,6 +49,7 @@ Document at least 3 bugs you found. Add rows as needed.
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+  
   I played the game several times and came to the conclusion that the issue had been fixed because I no longer received the incorrect       messages that appeared at the beginning. I then worked with the AI assistant to review the code and verify my observations. After         additional testing, I confirmed that the behavior I observed in the game matched the expected results.
 
 - Describe at least one test you ran (manual or using pytest)  
@@ -70,12 +75,15 @@ Document at least 3 bugs you found. Add rows as needed.
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
+  
   This project helped me become more familiar with VS Code and Git. One thing I want to reuse in future projects is learning how to take    advantage of AI assistants without overusing them.
 
 - This could be a testing habit, a prompting strategy, or a way you used Git.
+  
   AI helped me understand how to create efficient tests that cover possible edge cases that may occur in a program. I also enjoyed          becoming more familiar with Git and learning that it is not as complicated as it initially seemed.
 
 - What is one thing you would do differently next time you work with AI on a coding task?
+  
   I would rely less on the AI assistant at the beginning and spend more time developing my own ideas and understanding of the problem       first. Then, I would use AI to verify my reasoning, identify any misunderstandings, or fill in gaps in my knowledge.
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
   This project taught me that AI-generated code is most effective as an initial draft rather than a finished product, I realized that while AI speed up development, strict human oversight is always necessary to catch logical bugs and maintain system integrity.
